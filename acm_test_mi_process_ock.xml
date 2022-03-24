@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="ov_checker_stylesheet.xsl"?>
+<overflow_checker_report>
+<overflow_checker_version>1_5_1</overflow_checker_version>
+<model>acm_test_mi_process_mdl</model>
+<model_version>7.8</model_version>
+<generation_date>24-Mar-2022 15:34:20</generation_date>
+<rules>
+<rule>
+<name>Overflows</name>
+<description>Detect overflows in calculations</description>
+<priority>mandatory</priority>
+<note>Check saturate on integer overflow or reduce the precision of the output</note>
+<error id="1">
+<rule_type>Is overflowing:max 1123  &gt;  1023.96875</rule_type>
+<block_path>acm_test_mi_process_mdl/ACM_Test_Mi_Process/Add_v2_</block_path>
+<justification></justification>
+</error>
+</rule>
+<rule>
+<name>UserSet</name>
+<description>User set limits and ignores</description>
+<priority>low</priority>
+<note>Check user set values are still relevant</note>
+</rule>
+<rule>
+<name>SaturateNotNeeded</name>
+<description>Saturate on integer overflow not required</description>
+<priority>high</priority>
+<note>De-check saturate on integer overflow.</note>
+</rule>
+<rule>
+<name>SaturatedBlocks</name>
+<description>Blocks that are saturated</description>
+<priority>low</priority>
+<note>These blocks are saturated, consider if lowering resolution is required.</note>
+</rule>
+<rule>
+<name>'Possible Div by 0'</name>
+<description>Blocks that may cause ''Div by 0''</description>
+<priority>mandatory</priority>
+<note>These blocks must be protected against ''Div by 0''.</note>
+</rule>
+<rule>
+<name>'Div by 0 protection not needed'</name>
+<description>Blocks that do not cause ''Div by 0''</description>
+<priority>high</priority>
+<note>These blocks do not need to be protected against ''Div by 0''.</note>
+</rule>
+<rule>
+<name>Loops</name>
+<description>Detect loops in model that prevent overflow detection</description>
+<priority>low</priority>
+<note>Check user set values are still relevant.</note>
+</rule>
+<rule>
+<name>Errors</name>
+<description>A list of the blocks outputing something that isn''t currently calculable</description>
+<priority>low</priority>
+<note>There are blocks in this model that either aren''t currently supported or are part of a loop</note>
+</rule>
+</rules>
+</overflow_checker_report>
